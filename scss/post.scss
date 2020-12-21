@@ -1,0 +1,370 @@
+// Post SCSS for the theme.
+
+/* html,body { font-family: Helvetica !important; } */
+html,body { font-family: Source Sans Pro,"Helvetica Neue",Helvetica,Arial,sans-serif !important; }
+
+
+h1,h2,h3,h4,h5{
+font-family: Helvetica;
+}
+
+/* make top navbar smaller */
+nav.navbar .navbar-brand .logo img { max-height: 40px !important; }
+
+/* navbar  */
+.navbar { min-height: 50px !important; max-height: 50px !important; }
+
+/* move up sidebar  */
+#nav-drawer { top: 50px; height: calc(100% - 50px); }
+
+
+/* hamburger smaller */
+nav.navbar .drawer-toggle {
+height: 50px;
+padding: 8px 0px 0px 11px;
+}
+
+/*  rahmen bei section */
+#page-course-view-topics .course-content .section .sectionname { border-width: 5px 5px 5px 5px; margin: 0 0 0 0;}
+
+/*  remove parts of breadcrumb bar: 1. 'home', 2. 'courses' */
+.breadcrumb li:first-child { display: none !important; }
+.breadcrumb li:nth-child(2) { display: none !important; } 
+
+/* login window, opacity*/
+#page-login-index.moove-login .loginpanel { opacity: 95%; }
+#boxForm { border-radius: 5px; }
+
+/* login logo opacity and background*/
+#page-login-index.moove-login .logo img {
+background-color: #fff;
+opacity: 95%;
+padding: 8px;
+border-radius: 5px;
+}
+
+/*  Breadcrumb */
+/*  remove parts of breadcrumb bar: 1. 'home', 2. 'courses' */
+.breadcrumb li:first-child { display: none !important; }
+.breadcrumb li:nth-child(2) { display: none !important; } 
+
+#page-navbar .breadcrumb li>* {
+  padding: .2em .2em .2em 1.3em;
+  font-size: 14px;
+}
+
+#page-navbar .breadcrumb li::after, #page-navbar .breadcrumb li>*::after {
+  border-top-width: 14px;
+  border-bottom-width: 14px;
+}
+
+#page-navbar .breadcrumb {
+   padding-bottom:15px;
+}
+
+
+/* hide the usertour link on the bottom */
+.usertour { 
+    display: none !important;  
+}
+
+/* footer: Hide texts and put logos into center */
+#top-footer { 
+    background-repeat: no-repeat;     
+    background-size: contain;
+}
+
+.plugins_standard_footer_html { 
+    display: none !important; 
+}
+
+#top-footer h3  { 
+    display: none !important;
+}
+
+/* footer smaller */
+#top-footer { 
+    padding-top: 0px; 
+    padding-bottom: 0px; 
+}
+
+
+/* Mobile view */
+@media (max-width: 767px) {
+   #page {padding-left: 6px !important; padding-right: 6px !important;}
+   
+/* content in section box*/
+   .card-text {
+      margin-left: 5px !important;
+      margin-right: 5px !important;    
+   }
+   
+/* section box */
+   .card-body {
+      padding-left: 5px !important; 
+      padding-right: 5px !important;  
+   }
+
+
+/* format topic: make margins in topic course sections smaller*/   
+   .summary { 
+      margin-left:5px !important;
+      margin-top: 10px !important;
+   }
+
+/* format topics: move sctivity items to the left */   
+   .section .img-text {
+       margin-left: 0px !important;
+       padding-left: 7px !important;
+   }
+
+/* BUTTON */
+.course-content ul.buttons li.section .content { margin: 0 15px;}
+
+}
+
+/* content is defined here: https://github.com/willianmano/moodle-theme_moove/blob/master/scss/extras/_simple-line-icons.scss */
+[data-key="localboostnavigationcustomrootusersahkotp"] a:before{  content: "\e019" !important;}
+
+/* Hide 4th marketing box and stretch */
+#page-site-index.notloggedin .frontpage-marketing .card {
+ flex-basis: calc(33% - 1rem);
+}
+
+.frontpage-marketing .card-deck > :nth-child(4){
+display:none;
+}
+
+#page-site-index.notloggedin #page-header {
+min-height: 0px;
+}
+
+/* Ausblenden der Ka */
+.categorypicker {
+display:none;
+}
+
+svg.welcome {
+fill: #004ea8;
+padding: 15px;
+}
+
+
+/* card presentation description_card */
+.customfieldname, .customfieldseparator {
+  display: none;
+}
+
+/* body too wide */
+@media (max-width: 767px) {
+   body {
+     width: calc(100% - 10px); 
+     margin-left: 5px; 
+  }
+
+   body.notloggedin {
+     width: calc(100%-10px);
+     margin-left: 0px; 
+  }
+
+}
+
+@media (min-width: 768px) {
+   body {
+     width: calc(100% - 55px); 
+   }
+
+   body.notloggedin {
+     width: 100%;  
+     margin-left: 0px;
+   }
+  
+
+/* minimize margin in header*/
+   #page-header { margin-top: -16px !important; }
+  
+   
+}
+
+.card.card-welcome {
+   padding: 1vw;
+}
+
+
+/* course access */
+body#page-enrol-index #region-main img.card-img-top {
+  display: block;
+  overflow: hidden;
+  margin: -40vw 0 0;
+}
+
+body#page-enrol-index #region-main .generalbox {
+  float: none;
+  width: 100%;
+}
+
+#notice {
+  text-align: center !important; 
+  font-size: x-large !important;
+}
+
+/* page header hide on course category view and dashboard */
+#page-my-index #page-header, #page-course-index-category #page-header {
+   display: none;
+}
+
+/* Sidebar when showing impressum or datenschutz should not show when not logged in*/
+#page-mod-page-view.notloggedin #nav-drawer {display:none;}
+#page-mod-page-view.notloggedin .drawer-toggle {display:none !important;}
+
+/* hide continue button on the enrolment page*/
+#page-enrol-index .continuebutton {
+   display:none;
+}
+
+/* Logo Frontpage Marketingbox*/
+#page-site-index.notloggedin .frontpage-marketing .card img {
+   max-height: 6rem;
+}
+
+/* Hide certificates button in navbar*/
+li[data-key="certificates"]   { display:none !important;}
+
+/* ############################################## */
+/* FontAwesome for Buttons in Button Format for Desktop */
+/* ############################################## */
+.buttonsection {font: normal normal normal 14px/1 FontAwesome; padding-right: 0px !important;}
+
+/* check */
+#buttonsection-1::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-1::after{content: "\f274";  font-size: 20px;}
+
+/* film */
+#buttonsection-2::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-2::after{content: "\f008";  font-size: 20px;}
+
+/* cap */
+#buttonsection-3::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-3::after{content: "\f19d";  font-size: 20px;}
+
+/* group */
+#buttonsection-4::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-4::after{content: "\f0c0";  font-size: 20px;}
+
+/* gears */
+#buttonsection-5::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-5::after{content: "\f085";  font-size: 20px;}
+
+/* film */
+#buttonsection-6::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-6::after{content: "\f008";  font-size: 20px;}
+
+/* thumbs up */
+#buttonsection-7::first-letter {color: transparent; font-size: 0px;}
+#buttonsection-7::after{content: "\f087";  font-size: 20px;}
+
+/* font weight of Symbols */
+#buttonsectioncontainer .buttonsection {font-weight:100;}
+/*hide space above buttons*/
+.buttons .above {display:none;}
+
+/*hide your progress*/
+#completionprogressid {display:none;}
+.completionhelp.pull-right {display:none;}
+
+/* body too wide */
+@media (max-width: 767px) {
+.buttonsection {font: normal normal normal 8px/1 FontAwesome;}
+#buttonsectioncontainer .buttonsection {
+      width: 36px;
+      line-height: 36px;
+      height: 36px;
+      padding: 0px 0px 0px 0px;
+      font-weight: 100;
+       font-size: 8px;
+      margin: 0 5px 10px 5px;
+   }
+
+/* divider right disable */
+   #buttonsectioncontainer .divisorsection {margin:0;}
+   ul.buttons {margin:0; padding-inline-start:0;}
+
+/* disabled buttons */
+   #buttonsectioncontainer .buttonsection.sectionhidden {
+      width: 36px;
+      height: 36px;
+       line-height: 33px;
+   }
+.section .label .mod-indent-outer {padding-left:0px;}
+.contentwithoutlink  {padding-right:0px !important;}
+.col-sd-12 {padding-right:0px; padding-left:0px;margin-top:0px !important;}
+.course-content ul.section {margin:0rem;}
+.course-content ul.buttons li.section .content  {margin:0rem !important;}
+.section .img-text { padding-left: 0px!important; }
+}
+
+/* youtube embedding*/
+.yt-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+}
+
+/* AHK MODULE Specific*/
+h5 {text-align: center;}
+
+.otp-modulesvg {
+   width: 5rem;  
+   padding-top: 1rem;
+}
+
+.otp-headersymbol {text-align: center; font-size:4rem;padding-top:1rem;}
+.otp-headertext {text-align: center; font-size: 3rem;}
+
+.otp-module.row {margin:0 !important;}
+.photo-tile-text h3 {background-color:rgba(0,0,0,0.4) !important;font-size:smaller !important;}
+
+#page-header .card {background-color:transparent; border: 0px}
+#page-header h1 {text-align:center;}
+#page-navbar {display:none;}
+
+// custom styles from AHK 
+
+.tm-watermark {
+    //background-image: url([[pix:theme_thinkmod_child|coursecustomsvg2]]);
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    height: 100px; 
+    width: 120px; 
+    opacity: 0.1; 
+    margin: auto;
+}
+
+#page-header .card {
+    width: 100%;
+}
+
+#page-header .col-12 {
+    display: flex !important;
+}
+
+#page-header .card-body {
+    margin-left: -120px;
+}
+
+#page-header .mr-auto {
+    margin-left: auto !important;
+}
+
+/*[data-region="drawer"] a,a:active,a:visited {
+    color:#ffffff;
+}*/
+
