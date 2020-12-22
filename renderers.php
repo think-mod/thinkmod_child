@@ -45,11 +45,15 @@ class theme_thinkmod_child_core_renderer extends \theme_boost\output\core_render
 
         $course_svg = get_config('theme_thinkmod_child', 'coursecustomsvg'.$course_id);
 
+        $course_svg = $theme->setting_file_url('coursecustomsvg' . $course_id, 'coursecustomsvg' . $course_id);
+
+
         //$course_svg = $CFG->dataroot .'\/pluginfile.php/'.$forumcontextid.'/mod_forum/post/$postid/image.jpg';
 
 
         if($course_svg) {
-            $header->watermark = $CFG->dataroot . '/pluginfile.php/pix_plugins/theme/thinkmod_child/coursecustomsvg' . $course_id . '.svg';
+            $header->watermark = $course_svg;
+           // $header->watermark = $CFG->dataroot . '/pluginfile.php/pix_plugins/theme/thinkmod_child/coursecustomsvg' . $course_id . '.svg';
         }
 
         //"C:\xampp\apps\moodle\moodledata\pix_plugins\theme\thinkmod_child\coursecustomsvg2.svg"
