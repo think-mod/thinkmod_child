@@ -37,18 +37,6 @@ if ($ADMIN->fulltree) {
     */
     $page = new admin_settingpage('theme_moove_general', get_string('generalsettings', 'theme_moove'));
 
-    // Dashboard page background setting.
-    // We use variables for readability.
-    $name = 'theme_thinkmod_child/coursecustomsvg';
-    $title = get_string('coursecustomsvg', 'theme_thinkmod_child');
-    $description = get_string('coursecustomsvgdesc', 'theme_thinkmod_child');
-    // This creates the new setting.
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'coursecustomsvg');
-    // This function will copy the image into the data_root location it can be served from.
-    $setting->set_updatedcallback('theme_thinkmod_child_update_settings_images');
-    // We always have to add the setting to a page for it to have any effect.
-    $page->add($setting);
-
     
     // Logo file setting.
     $name = 'theme_thinkmod_child/logo';

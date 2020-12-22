@@ -46,8 +46,10 @@ class theme_thinkmod_child_core_renderer extends \theme_boost\output\core_render
         $course_svg = get_config('theme_thinkmod_child', 'coursecustomsvg'.$course_id);
 
         if($course_svg) {
-            $header->watermark = $CFG->dataroot . $course_svg;
+            $header->watermark = $CFG->dataroot . '/pix_plugins/theme/thinkmod_child/coursecustomsvg'.$course_id . '.svg';
         }
+
+        //"C:\xampp\apps\moodle\moodledata\pix_plugins\theme\thinkmod_child\coursecustomsvg2.svg"
 
         return $this->render_from_template('core/full_header', $header);
     }
