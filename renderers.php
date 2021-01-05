@@ -47,6 +47,8 @@ class theme_thinkmod_child_core_renderer extends \theme_boost\output\core_render
 
         if($course_svg) {
            $header->watermark = $CFG->wwwroot.'/theme/thinkmod_child/pix/coursecustomsvg' . $course_id . '.svg';
+        } else {
+            $header->watermark = '';
         }
 
         return $this->render_from_template('core/full_header', $header);
