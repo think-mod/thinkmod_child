@@ -185,6 +185,8 @@ if ($ADMIN->fulltree) {
         $setting->set_updatedcallback('theme_thinkmod_child_update_settings_images');
         // We always have to add the setting to a page for it to have any effect.
         $page->add($setting);
+
+        // set svg for buttons and course sections 
     }
 
 

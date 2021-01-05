@@ -119,13 +119,17 @@ function theme_thinkmod_child_update_settings_images($settingname) {
     $fullpath = "/{$syscontext->id}/{$component}/{$settingname}/0{$filename}";
 
     // This location matches the searched for location in theme_config::resolve_image_location.
-    $pathname = $CFG->dataroot . '/pix_plugins/theme/thinkmod_child/' . $settingname . '.' . $extension;
+    //$pathname = $CFG->dataroot . '/pix_plugins/theme/thinkmod_child/' . $settingname . '.' . $extension;
+    $pathname = $CFG->dirroot . '/theme/thinkmod_child/pix/' . $settingname . '.' . $extension;
+
 
     // This pattern matches any previous files with maybe different file extensions.
-    $pathpattern = $CFG->dataroot . '/pix_plugins/theme/thinkmod_child/' . $settingname . '.*';
+    //$pathpattern = $CFG->dataroot . '/pix_plugins/theme/thinkmod_child/' . $settingname . '.*';
+    $pathpattern = $CFG->dirroot . '/theme/thinkmod_child/pix/' . $settingname . '.*';
 
     // Make sure this dir exists.
-    @mkdir($CFG->dataroot . '/pix_plugins/theme/thinkmod_child/', $CFG->directorypermissions, true);
+    //@mkdir($CFG->dataroot . '/pix_plugins/theme/thinkmod_child/', $CFG->directorypermissions, true);
+    @mkdir($CFG->dirroot . '/theme/thinkmod_child/pix/', $CFG->directorypermissions, true);
 
 
 
@@ -146,19 +150,94 @@ function theme_thinkmod_child_update_settings_images($settingname) {
     theme_reset_all_caches();
 }
 
-function theme_thinkmod_child_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'theme_thinkmod_child') {
-        $theme = theme_config::load('thinkmod_child');
-        $course_id = $course->id;
-        return $theme->setting_file_serve('coursecustomsvg'.$course_id, $args, $forcedownload, $options);
-    } else {
-        send_file_not_found();
-    }
-}
-
 
 function theme_thinkmod_child_page_init(moodle_page $page) {
     global $CFG;
+    global $course;
+    global $PAGE;
+
+    //$modinfo = get_fast_modinfo($course);
+    //var_dump($modinfo->get_section_info_all());
+
+    /*foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+        var_dump($section);
+    }*/
+
+    //die();
+
+    /*$divisorshow = false;
+    $count = 1;
+    $currentdivisor = 1;
+    $modinfo = get_fast_modinfo($course);
+    $inline = '';
+    foreach ($modinfo->get_section_info_all() as $section => $thissection) {
+        var_dump($course);
+        die();
+        if ($section == 0) {
+            continue;
+        }
+        if ($section > $course->numsections) {
+            continue;
+        }
+        if ($course->hiddensections && !(int)$thissection->visible) {
+            continue;
+        }
+        if (isset($course->{'divisor' . $currentdivisor}) &&
+            $count > $course->{'divisor' . $currentdivisor}) {
+            var_dump($course->{'divisor' . $currentdivisor});
+            $count = 1;
+        }
+        if (isset($course->{'divisor' . $currentdivisor}) &&
+            $course->{'divisor' . $currentdivisor} != 0 &&
+            !isset($divisorshow[$currentdivisor])) {
+            $currentdivisorhtml = format_string($course->{'divisortext' . $currentdivisor});
+            $currentdivisorhtml = str_replace('[br]', '<br>', $currentdivisorhtml);
+            $currentdivisorhtml = html_writer::tag('div', $currentdivisorhtml, ['class' => 'divisortext']);
+            if ($course->inlinesections) {
+                $inline = 'inlinebuttonsections';
+            }
+            $html .= html_writer::tag('div', $currentdivisorhtml, ['class' => "divisorsection $inline"]);
+            $divisorshow[$currentdivisor] = true;
+        }
+        $id = 'buttonsection-' . $section;
+        if ($course->sequential) {
+            $name = $section;
+        } else {
+            if (isset($course->{'divisor' . $currentdivisor}) &&
+            $course->{'divisor' . $currentdivisor} == 1) {
+                $name = '&bull;&bull;&bull;';
+            } else {
+                $name = $count;
+            }
+        }
+        if ($course->sectiontype == 'alphabet' && is_numeric($name)) {
+            $name = $this->number_to_alphabet($name);
+        }
+        if ($course->sectiontype == 'roman' && is_numeric($name)) {
+            $name = $this->number_to_roman($name);
+        }
+        $class = 'buttonsection';
+        $onclick = 'M.format_buttons.show(' . $section . ',' . $course->id . ')';
+        if (!$thissection->available &&
+            !empty($thissection->availableinfo)) {
+            $class .= ' sectionhidden';
+        } else if (!$thissection->uservisible || !$thissection->visible) {
+            $class .= ' sectionhidden';
+            $onclick = false;
+        }
+        if ($course->marker == $section) {
+            $class .= ' current';
+        }
+        if ($sectionvisible == $section) {
+            $class .= ' sectionvisible';
+        }
+        if ($PAGE->user_is_editing()) {
+            $onclick = false;
+        }
+        $count++;
+    }
+    die();*/
+
     $mobilestyles = $CFG->mobilecssurl;
 
     //need to check which course we are in
@@ -247,7 +326,7 @@ function theme_thinkmod_child_before_footer() {
     
 }
 
-/*function theme_thinkmod_child_extend_settings_navigation($navigation, $context) {
+function thinkmod_child_extend_settings_navigation($navigation, $context) {
     global $CFG;
     $parent = $navigation->find('courseadmin', navigation_node::TYPE_COURSE);
 
@@ -256,5 +335,5 @@ function theme_thinkmod_child_before_footer() {
     }
 
     $parent->add('Set course color', '/admin/settings.php?section=themesettingthinkmod_child');
-}*/
+}
 

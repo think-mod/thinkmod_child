@@ -237,7 +237,11 @@ li[data-key="certificates"]   { display:none !important;}
 
 /* check */
 #buttonsection-1::first-letter {color: transparent; font-size: 0px;}
-#buttonsection-1::after{content: "\f274";  font-size: 20px;}
+#buttonsection-1::after {
+   -webkit-mask: url([[pix:theme|coursecustomsvg2]]) no-repeat 50% 50%;
+   mask:  url([[pix:theme|coursecustomsvg2]]) no-repeat 50% 50%;
+}
+
 
 /* film */
 #buttonsection-2::first-letter {color: transparent; font-size: 0px;}
@@ -267,6 +271,30 @@ li[data-key="certificates"]   { display:none !important;}
 #buttonsectioncontainer .buttonsection {font-weight:100;}
 /*hide space above buttons*/
 .buttons .above {display:none;}
+
+.buttonsection::after {
+   background-color: #000;
+   opacity: 0.4;
+   width: 60%;
+   height: 60%;
+   margin-top: 20%;
+   display: inline-block;
+   content: '';
+   -webkit-mask-size: cover;
+   mask-size: cover;
+}
+
+/* button hover effect */
+.buttonsection:hover:after {
+   background-color: #fff;
+   opacity: 1;
+}
+
+/*set active button color */
+.buttonsection.sectionvisible::after {
+   background-color: #fff;
+   opacity: 1;
+}
 
 /*hide your progress*/
 #completionprogressid {display:none;}
