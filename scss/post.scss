@@ -367,7 +367,6 @@ h5 {text-align: center;}
 // custom styles from AHK 
 
 .tm-watermark {
-    //background-image: url([[pix:theme_thinkmod_child|coursecustomsvg2]]);
     background-size: contain; 
     background-repeat: no-repeat; 
     height: 100px; 
@@ -384,10 +383,6 @@ h5 {text-align: center;}
     display: flex !important;
 }
 
-#page-header .card-body {
-    margin-left: -120px;
-}
-
 #page-header .mr-auto {
     margin-left: auto !important;
 }
@@ -395,4 +390,29 @@ h5 {text-align: center;}
 /*[data-region="drawer"] a,a:active,a:visited {
     color:#ffffff;
 }*/
+
+// Will's custom styles
+#nav-drawer.closed, .drawer-toggle {
+   width: 50px !important;
+   padding: 0 !important;
+}
+
+#nav-drawer .list-group-item {
+   padding: 0 !important;
+}
+
+#nav-drawer-footer {
+   width: 50px !important;
+}
+
+#nav-drawer.closed .list-group .list-group-item:hover {
+   background-color: inherit;
+   width: 50px;
+}
+
+
+#nav-drawer.closed .list-group .list-group-item:hover a .text {
+   display: none;
+}
+
 
