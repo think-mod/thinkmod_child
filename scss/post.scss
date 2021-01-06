@@ -407,7 +407,7 @@ h5 {text-align: center;}
 
 #nav-drawer.closed .list-group .list-group-item:hover {
    background-color: inherit;
-   width: 50px;
+   width: 45px;
 }
 
 
@@ -418,7 +418,17 @@ h5 {text-align: center;}
 #nav-drawer.closed .list-group .list-group-item:hover>ul {
    left: 45px;
    top: 5px;
-   background-color: rgba(255, 132, 5, 0.7);
+   background-color: inherit;
+   padding: 0;
+   li {
+      background-color: rgba(255,255,255,0.2);
+      padding: 10px;
+   }
+}
+
+
+body {
+    width: calc(100% - 50px);
 }
 
 
