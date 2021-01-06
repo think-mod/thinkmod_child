@@ -415,4 +415,10 @@ h5 {text-align: center;}
    display: none;
 }
 
+#nav-drawer.closed .list-group .list-group-item:hover>ul {
+   left: 45px;
+   top: 5px;
+   background-color: rgba(255, 132, 5, 0.7);
+}
+
 
